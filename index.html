@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Modern UI Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="animated-background">
+        <div class="color-blob color-blob-1"></div>
+        <div class="color-blob color-blob-2"></div>
+        <div class="color-blob color-blob-3"></div>
+        <div class="color-blob color-blob-4"></div>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <div class="theme-panel" id="themePanel">
+        <div class="theme-panel-toggle" id="themePanelToggle">
+            <i class="fas fa-palette"></i>
+        </div>
+        <div class="theme-panel-header">
+            <h3>Color Themes</h3>
+        </div>
+        <div class="theme-options">
+            <span class="theme-option-label">Select a color:</span>
+            <div class="color-options">
+                <div class="color-option active" data-theme="purple"></div>
+                <div class="color-option" data-theme="blue"></div>
+                <div class="color-option" data-theme="green"></div>
+                <div class="color-option" data-theme="orange"></div>
+                <div class="color-option" data-theme="red"></div>
+                <div class="color-option" data-theme="pink"></div>
+                <div class="color-option" data-theme="teal"></div>
+                <div class="color-option" data-theme="yellow"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="clickSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="switchSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="successSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2870/2870-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Visitor Analytics Panel -->
+    <div class="visitor-panel" id="visitorPanel">
+        <div class="visitor-panel-toggle" id="visitorPanelToggle">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="visitor-panel-header">
+            <h3>Visitor Analytics</h3>
+        </div>
+        <div class="visitor-content">
+            <div class="visitor-stats">
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Page Views</span>
+                        <span class="stat-value" id="pageViews">0</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Time on Page</span>
+                        <span class="stat-value" id="timeOnPage">0s</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon"><i class="fas fa-mouse-pointer"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-label">Clicks</span>
+                        <span class="stat-value" id="clickCount">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="visitor-details">
+                <h4>Your Information</h4>
+                <ul class="visitor-info-list" id="visitorInfo">
+                    <li><strong>Browser:</strong> <span id="browserInfo">Detecting...</span></li>
+                    <li><strong>OS:</strong> <span id="osInfo">Detecting...</span></li>
+                    <li><strong>Screen:</strong> <span id="screenInfo">Detecting...</span></li>
+                    <li><strong>IP Address:</strong> <span id="ipInfo">Fetching...</span></li>
+                    <li><strong>Location:</strong> <span id="locationInfo">Fetching...</span></li>
+                    <li><strong>Referrer:</strong> <span id="referrerInfo">Detecting...</span></li>
+                </ul>
+            </div>
+            <div class="consent-settings">
+                <h4>Data Collection Settings</h4>
+                <div class="consent-option">
+                    <input type="checkbox" id="analyticConsent" checked>
+                    <label for="analyticConsent">Allow anonymous analytics</label>
+                </div>
+                <div class="consent-option">
+                    <input type="checkbox" id="locationConsent" checked>
+                    <label for="locationConsent">Allow location data</label>
+                </div>
+                <button id="clearDataBtn" class="btn btn-small">Clear My Data</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Color<span>Studio</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Create <span class="highlight">Colorful</span> Experiences</h1>
+                <p>We design and develop vibrant modern websites and applications that help businesses stand out.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.pixabay.com/photo/2025/03/24/20/08/climber-9491285_640.png" alt="Colorful Web Design">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="highlight">Colorful</span> Features</h2>
+                <p>What makes our services vibrantly special</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="color-bar color-bar-1"></div>
+                    <h3>Vibrant Design</h3>
+                    <p>Bold and beautiful interfaces that capture your brand essence with stunning colors.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="color-bar color-bar-2"></div>
+                    <h3>Colorful Responsive</h3>
+                    <p>Websites that look vibrant and work perfectly on all devices and screen sizes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="color-bar color-bar-3"></div>
+                    <h3>Dynamic Performance</h3>
+                    <p>Optimized colorful animations and transitions for the best user experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="color-bar color-bar-4"></div>
+                    <h3>Color Psychology</h3>
+                    <p>Strategic use of colors that evoke emotions and drive conversions for your brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2>About Us</h2>
+                        <p>Get to know our team</p>
+                    </div>
+                    <p>We are a team of passionate designers and developers dedicated to creating exceptional digital experiences. With years of experience in the industry, we understand what makes a website not just functional, but truly engaging.</p>
+                    <p>Our mission is to help businesses of all sizes establish a strong online presence through thoughtful design and cutting-edge development.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://cdn.pixabay.com/photo/2017/05/04/16/37/meeting-2284501_640.jpg" alt="Our Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Testimonials from satisfied customers</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"Working with this team was an absolute pleasure. They delivered a website that exceeded our expectations and has significantly improved our online presence."</p>
+                    <div class="client">
+                        <div class="client-image">
+                            <img src="https://img.freepik.com/free-photo/handsome-satisfied-bearded-man-show-okay-sign_176420-17944.jpg?semt=ais_hybrid&w=740" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"The attention to detail and commitment to quality was impressive. Our new website has received countless compliments and has boosted our conversions."</p>
+                    <div class="client">
+                        <div class="client-image">
+                            <img src="data:image/jpeg;base64,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" alt="Client">
+                        </div>
+                        <div class="client-info">
+                            <h4>Michael Brown</h4>
+                            <p>Marketing Director, GrowthCo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>585328 Design Street, Creative City</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 782939695*</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>kadamamit462@gmail.cm</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&nbsp &nbsp &nbsp &nbsp &nbsp copy; 2023 BrandStudio. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap &nbsp &nbsp &nbsp &nbsp</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
